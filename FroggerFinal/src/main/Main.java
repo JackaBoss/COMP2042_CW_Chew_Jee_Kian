@@ -1,13 +1,20 @@
 package main;
 
 import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+
+import javafx.scene.layout.BorderPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
@@ -18,13 +25,19 @@ public class Main extends Application {
 	AnimationTimer timer;
 	MyStage background;
 	Animal animal;
-
+	
+	private Stage primaryStage;
+	private BorderPane testLayout;
+		
 	public static void main(String[] args) {
 		launch(args);
 	}
 
 	@Override
-	public void start(Stage primaryStage) throws Exception {
+	public void start(Stage primaryStage) throws IOException {
+		this.primaryStage = primaryStage;
+		this.primaryStage.setTitle(" Frogger The Game");
+		
 		background = new MyStage();
 		//background size
 		Scene scene = new Scene(background, 565, 800);
@@ -99,15 +112,29 @@ public class Main extends Application {
 		background.add(new Obstacle("file:src/resources/truck2Right.png", 0, 540, 1, 200, 200));
 		background.add(new Obstacle("file:src/resources/truck2Right.png", 500, 540, 1, 200, 200));
 		background.add(new Obstacle("file:src/resources/car1Left.png", 500, 490, -5, 50, 50));
+		
+		//Score
 		background.add(new Digit(0, 30, 360, 25));
 		// background.add(obstacle);
 		// background.add(obstacle1);
 		// background.add(obstacle2);
 		background.start();
-		primaryStage.setScene(scene);
-		primaryStage.show();
+		this.primaryStage.setScene(scene);
+		this.primaryStage.show();
+		showMainView();
 		start();
 	}
+	
+	private void showMainView() throws IOException {
+		FXMLLoader loader = new FXMLLoader ();
+		loader.setLocation(Main.class.getResource("view/Mainview.fxml"));
+		testLayout = (BorderPane) loader.load();
+		Scene scene = new Scene (testLayout);
+		this.primaryStage.setScene(scene);
+		this.primaryStage.show();
+			
+	}
+	
 
 	public void createTimer() {
 		timer = new AnimationTimer() {
