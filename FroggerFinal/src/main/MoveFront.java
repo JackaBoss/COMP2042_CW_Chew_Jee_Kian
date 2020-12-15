@@ -6,7 +6,6 @@ import javafx.scene.image.Image;
 
 /**
  * Implements the logic for a frog walking forwards
- * @author psyjpf
  */
 public class MoveFront extends MoveState {		
 	

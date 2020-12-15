@@ -3,7 +3,7 @@ package main;
 
 import main.Act;
 import main.Player;
-import main.WalkingController;
+import main.MoveController;
 import javafx.scene.image.Image;
 
 /**
@@ -38,8 +38,8 @@ public class DeathController implements Act {
 			}
 			else {
 				player.setX(300);
-				player.setY(679.8 + WalkingController.yDisplacment);
-				player.setImage(new Image(Player.class.getResource("froggerUp.png").toString(), player.getSize(), player.getSize(), true, true));
+				player.setY(679.8 + MoveController.yDisplacment);
+				player.setImage(new Image(Player.class.getResource("file:src/resources/froggerUp.png").toString(), player.getSize(), player.getSize(), true, true));
 				
 				if (player.getPoints()>50) {
 					player.setPoints(player.getPoints() - 50);

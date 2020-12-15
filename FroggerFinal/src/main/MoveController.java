@@ -5,7 +5,6 @@ import javafx.scene.image.Image;
 
 /**
  * Used to control the direction the player is walking in and what should be displayed.
- * @author psyjpf
  */
 public class MoveController {
 	protected Player player;
