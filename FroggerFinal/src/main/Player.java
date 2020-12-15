@@ -5,14 +5,14 @@ import main.Actor;
 import main.BackgroundImage;
 import main.End;
 import main.Movement;
-import main.deathcontroller.CarDeath;
-import main.deathcontroller.DeathController;
-import main.deathcontroller.WaterDeath;
-import main.walkingcontroller.BackwardsWalk;
-import main.walkingcontroller.ForwardsWalk;
-import main.walkingcontroller.LeftWalk;
-import main.walkingcontroller.RightWalk;
-import main.walkingcontroller.WalkingController;
+import main.DeathCar;
+import main.DeathController;
+import main.WaterDeath;
+import main.MoveBack;
+import main.MoveFront;
+import main.MoveLeft;
+import main.MoveRight;
+import main.MoveController;
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
@@ -20,8 +20,7 @@ import javafx.scene.input.KeyEvent;
 import main.Observer;
 
 /**
- * The class which represents the main player object/ frog
- * @author psyjpf
+ * The class which represents the main player 
  */
 public class Player extends Actor implements Act {
 	
@@ -32,7 +31,7 @@ public class Player extends Actor implements Act {
 	
 	private Integer lives;
 	private DeathController healthState;
-	private WalkingController walkingState;
+	private MoveController walkingState;
 	private double lastHeight = 800;
 	private int points = 0;
 
@@ -49,28 +48,28 @@ public class Player extends Actor implements Act {
 		this.lives = lives;
 		this.observer = observer;
 		healthState =  new DeathController(this);
-		walkingState = new WalkingController(this);
+		walkingState = new MoveController(this);
 		
 		setImage(new Image(imageLink, getSize(), getSize(), true, true));
 		
 		setX(300);
-		setY(679.8+ WalkingController.yDisplacment);
+		setY(679.8+ MoveController.yDisplacment);
 		
 		setOnKeyPressed(new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent event){
 				if (!noMove()) {
 					switch(event.getCode()) {
 						case W:
-			                walkingState.setState(new ForwardsWalk(walkingState));
+			                walkingState.setState(new MoveFront(walkingState));
 							break;
 						case A:
-							 walkingState.setState(new LeftWalk(walkingState));
+							 walkingState.setState(new MoveLeft(walkingState));
 							 break;
 						case S:
-							walkingState.setState(new BackwardsWalk(walkingState));
+							walkingState.setState(new MoveBack(walkingState));
 							break;
 						case D:
-							 walkingState.setState(new RightWalk(walkingState));
+							 walkingState.setState(new MoveRight(walkingState));
 							 break;
 						default:
 							break;
@@ -118,7 +117,7 @@ public class Player extends Actor implements Act {
 			setX(0);
 		}
 		if (getX()>(BackgroundImage.width - getWidth())) {
-			setX(BackgroundImage.width - WalkingController.xDisplacment * 2);
+			setX(BackgroundImage.width - MoveController.xDisplacment * 2);
 		}
 	}
 	/**
@@ -126,7 +125,7 @@ public class Player extends Actor implements Act {
 	 */
 	private void withInYBounds() {
 		if (getY()< 0 || getY()> (BackgroundImage.height - getHeight())) {
-			setY(679.8+ WalkingController.yDisplacment);
+			setY(679.8+ MoveController.yDisplacment);
 		}
 	}
 	
@@ -134,8 +133,8 @@ public class Player extends Actor implements Act {
 	 * If the frog has been hit by a car set it's state to Car Death
 	 */
 	private void hasHitCar() {
-		if (getIntersectingObjects(PanningActor.class).removeIf(c -> !c.isSafe())) {
-			healthState.setState(new CarDeath());
+		if (getIntersectingObjects(Movement.class).removeIf(c -> !c.isSafe())) {
+			healthState.setState(new DeathCar());
 		}
 	}
 	
@@ -154,8 +153,8 @@ public class Player extends Actor implements Act {
 	 * @return is the frog on a log  or turtle or not
 	 */
 	private boolean movingWithSafeActor() {
-		if (getIntersectingObjects(PanningActor.class).removeIf(c -> c.isSafe()) && !noMove()) {
-			move(getIntersectingObjects(PanningActor.class).get(0).getSpeed(),0);
+		if (getIntersectingObjects(Movement.class).removeIf(c -> c.isSafe()) && !noMove()) {
+			move(getIntersectingObjects(Movement.class).get(0).getSpeed(),0);
 			return true;
 		}
 		return false;
@@ -178,12 +177,11 @@ public class Player extends Actor implements Act {
 			if (!getIntersectingObjects(End.class).get(0).isActivated()) {
 				setPoints(getPoints() + 50);
 			}
-			
 			lastHeight=800;
 			walkingState.clearState();
 			getIntersectingObjects(End.class).get(0).setEnd();			
 			setX(300);
-			setY(679.8+(WalkingController.yDisplacment*2));
+			setY(679.8+(MoveController.yDisplacment*2));
 		}
 	}
 	

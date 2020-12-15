@@ -48,7 +48,7 @@ public class MyStage extends World{
 	
 	
 	public void change(GenerateLevel newLevel, Integer lives) throws IOException {
-		primaryStage.setScene(levelScene);
+		primaryStage.setScene(stagelvl);
 		level = new Game(this, newLevel, lives);
 	}
 	
@@ -78,7 +78,7 @@ public class MyStage extends World{
 			FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("ScoreBoard.fxml"));
 	
 			tempScene = new Scene(fxmlLoader.load(),BackgroundImage.width, BackgroundImage.height);
-			ScoreBoardController controller = fxmlLoader.<ScoreBoardController>getController();
+			ScoreControl controller = fxmlLoader.<ScoreControl>getController();
 			controller.setModel(level, score);
 			
 			tempScene.getStylesheets().add("style.css");

@@ -18,7 +18,7 @@ public class Game implements Observer {
 	private GenerateLevel mapData; 
 	private MyStage base;
 	private Player frog;
-	private ArrayList<Overlay> hearts = new ArrayList<Overlay>();
+	private ArrayList<Digit> hearts = new ArrayList<Digit>();
 
 	
 	public Game(MyStage base, GenerateLevel LevelToMake, Integer Lives) {
@@ -26,7 +26,7 @@ public class Game implements Observer {
 		mapData = LevelToMake;
 		frog = new Player(Player.class.getResource("froggerUp.png").toString(), Lives, this, mapData.getWaterLevel());
 		base.add(frog);	
-		base.add(new Overlay(Actor.class.getResource("0.png").toString(), 30, 500, 25));
+		base.add(new Digit(Actor.class.getResource("0.png").toString(), 30, 500, 25));
 
 		generateHeartsOverlay(Lives);
 	
@@ -54,7 +54,7 @@ public class Game implements Observer {
 		if(Lives != null) {
 			int heartSize = Lives < 10 ? 30 : 25;
 			for(int i = 0; i <Lives; i++) {
-				hearts.add(new Overlay(Actor.class.getResource("heart.png").toString(),heartSize, 10  + (i*heartSize), BackgroundImage.height - 50));
+				hearts.add(new Digit(Actor.class.getResource("heart.png").toString(),heartSize, 10  + (i*heartSize), BackgroundImage.height - 50));
 				base.add(hearts.get(i));			
 			}
 		}
@@ -68,7 +68,7 @@ public class Game implements Observer {
     		  int d = n / 10;
     		  int k = n - d * 10;
     		  n = d;
-    		  base.add(new Overlay(Actor.class.getResource(k + ".png").toString(), 30, 500 - shift, 25));
+    		  base.add(new Digit(Actor.class.getResource(k + ".png").toString(), 30, 500 - shift, 25));
     		  shift+=30;
     	}
 	}

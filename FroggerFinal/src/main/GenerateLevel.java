@@ -58,11 +58,10 @@ public abstract class GenerateLevel {
 		generateRow7();
 		generateRow8();
 		generateRow9();
-
-		
+	}
+	
+	
 	public Boolean getPlayMusic() {
 		return PlayMusic;
-	}	
-	
-
+	}
 }
