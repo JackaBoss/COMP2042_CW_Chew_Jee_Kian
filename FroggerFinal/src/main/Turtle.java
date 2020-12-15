@@ -2,42 +2,42 @@ package main;
 
 import javafx.scene.image.Image;
 
-public class Turtle extends Actor {
-	Image turtle1;
-	Image turtle2;
-	Image turtle3;
-	private int speed;
-	int i = 1;
-	boolean bool = true;
+public class Turtle extends Movement {
+	
+	private Image[] stageTurtles;
+	
 
-	@Override
-	public void act(long now) {
 
-		if (now / 900000000 % 3 == 0) {
-			setImage(turtle2);
-
-		} else if (now / 900000000 % 3 == 1) {
-			setImage(turtle1);
-
-		} else if (now / 900000000 % 3 == 2) {
-			setImage(turtle3);
-
+	public Turtle(int xpos, int ypos, double speed, int width, int height, boolean isSinkable) {
+		super(xpos, ypos, speed);
+		if(isSinkable) {
+			stageTurtles = new Image[] {
+				new Image(Turtle.class.getResource("file:src/resources/TurtleAnimation2Wet.png").toString(), width, height, true, true),	
+				new Image(Turtle.class.getResource("file:src/resources/TurtleAnimation1.png").toString(), width, height, true, true),
+				new Image(Turtle.class.getResource("file:src/resources/TurtleAnimation3Wet.png").toString(), width, height, true, true),
+				new Image(Turtle.class.getResource("file:src/resources/TurtleAnimation4Wet.png").toString(), width, height, true, true)
+			};
 		}
-
-		move(speed, 0);
-		if (getX() > 600 && speed > 0)
-			setX(-200);
-		if (getX() < -75 && speed < 0)
-			setX(600);
+		
+		else {
+			stageTurtles = new Image[] {
+					new Image(Turtle.class.getResource("file:src/resources/TurtleAnimation2.png").toString(), width, height, true, true),	
+					new Image(Turtle.class.getResource("file:src/resources/TurtleAnimation1.png").toString(), width, height, true, true),
+					new Image(Turtle.class.getResource("file:src/resources/TurtleAnimation3.png").toString(), width, height, true, true),
+			};
+		}
+		
+		setImage(stageTurtles[0]);
 	}
 
-	public Turtle(int xpos, int ypos, int s, int w, int h) {
-		turtle1 = new Image("file:src/resources/TurtleAnimation1.png", w, h, true, true);
-		turtle2 = new Image("file:src/resources/TurtleAnimation2.png", w, h, true, true);
-		turtle3 = new Image("file:src/resources/TurtleAnimation3.png", w, h, true, true);
-		setX(xpos);
-		setY(ypos);
-		speed = s;
-		setImage(turtle2);
+/**
+ * For the moving turtles, it will cycle through its animation to submerge over time
+ */
+	
+	@Override
+	public void act(long now) {
+		super.act(now);
+		setImage(stageTurtles[(int) (now/900000000  % stageTurtles.length)]);
+		setIsSafe(((int) (now/900000000  % stageTurtles.length) != 3));
 	}
 }

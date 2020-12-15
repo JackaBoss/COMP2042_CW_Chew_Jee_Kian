@@ -35,6 +35,12 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
+		
+		
+		
+		
+		
+		
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle(" Frogger The Game");
 		

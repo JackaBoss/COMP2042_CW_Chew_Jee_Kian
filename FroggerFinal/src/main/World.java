@@ -16,6 +16,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
 
+import main.Actor;
+
+
+
 public abstract class World extends Pane {
     private AnimationTimer timer;
     
@@ -65,18 +69,21 @@ public abstract class World extends Pane {
     }
 
     public void createTimer() {
-        timer = new AnimationTimer() {
-            @Override
-            public void handle(long now) {
-                act(now);
-                List<Actor> actors = getObjects(Actor.class);
+    	//Added if timer == null so timer wont overlap 
+    	if (timer ==null) {
+    		timer = new AnimationTimer() {
+    			@Override
+    			public void handle(long now) {
+    				act(now);
+    				List<Actor> actors = getObjects(Actor.class);
                 
-                for (Actor anActor: actors) {
-                	anActor.act(now);
-                }
+    					for (Actor anActor: actors) {
+    						anActor.act(now);
+    					}
       
-            }
-        };
+    			}
+    		};
+    	}
     }
 
     public void start() {
@@ -92,6 +99,16 @@ public abstract class World extends Pane {
         getChildren().add(actor);
     }
 
+    
+    
+    
+   	//Clears the screen after a level, implemented this for multiple games in a row
+    public void removeAll() {
+  	  getChildren().removeAll(getChildren());
+  }
+    
+    
+    
     public void remove(Actor actor) {
         getChildren().remove(actor);
     }
@@ -106,5 +123,6 @@ public abstract class World extends Pane {
         return someArray;
     }
 
-    public abstract void act(long now);
+
+    
 }

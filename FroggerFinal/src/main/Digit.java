@@ -3,17 +3,11 @@ package main;
 import javafx.scene.image.Image;
 
 public class Digit extends Actor {
-	int dim;
-	Image im1;
 
-	@Override
-	public void act(long now) {
-		// TODO Auto-generated method stub
 
-	}
-
-	public Digit(int n, int dim, int x, int y) {
-		im1 = new Image("file:src/resources/" + n + ".png", dim, dim, true, true);
+	// renamed n to name, dim to dimensions,
+	public Digit(String name, int dimensions, int x, int y) {
+		Image im1 = new Image(name, dimensions, dimensions, true, true);
 		setImage(im1);
 		setX(x);
 		setY(y);
