@@ -61,7 +61,7 @@ public class MyStage extends World{
 			Scene ScenePlaceholder;
 			ScenePlaceholder = new Scene(loadFXML(newScene),BackgroundImage.width, BackgroundImage.height);
 			ScenePlaceholder.getStylesheets().add("style.css");
-			primaryStage.setScene(tempScene);
+			primaryStage.setScene(ScenePlaceholder);
 		}
 		
 		//Debugging and error reporting
