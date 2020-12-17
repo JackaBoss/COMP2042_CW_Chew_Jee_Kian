@@ -1,22 +1,29 @@
 package main;
 
 import main.MyStage;
-
+import main.BackgroundImage;
+import main.End;
 
 
 public abstract class GenerateLevel {
+	private final int WaterLevel;
 	private final int EndGoals;
 	protected final MyStage Background;
 	private Boolean PlayMusic;
 
 
 
-	protected GenerateLevel(int noOfGoals, MyStage base, String BackgroundImage, Boolean playMusic) {
+	protected GenerateLevel(int waterLevel, int noOfGoals, MyStage base, String BackgroundImage, Boolean playMusic) {
+		WaterLevel = waterLevel;
 		EndGoals = noOfGoals;
 		Background = base;
 		PlayMusic = playMusic;
 		Background.add(new BackgroundImage(BackgroundImage));
 		generateEnd(EndGoals);
+	}
+	
+	public int getWaterLevel() {
+		return WaterLevel;
 	}
 	
 	public int getEndGoals() {
