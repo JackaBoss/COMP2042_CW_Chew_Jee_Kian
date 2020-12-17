@@ -15,10 +15,10 @@ public class Turtle extends Actor {
 
 		if (now / 900000000 % 3 == 0) {
 			setImage(turtle2);
-
+			
 		} else if (now / 900000000 % 3 == 1) {
 			setImage(turtle1);
-
+			
 		} else if (now / 900000000 % 3 == 2) {
 			setImage(turtle3);
 

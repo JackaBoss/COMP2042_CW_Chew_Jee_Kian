@@ -3,7 +3,8 @@ package main;
 import javafx.scene.image.Image;
 
 public class Log extends Actor {
-
+	public static final String LOG_3 = "file:src/resources/log3.png";
+	
 	private double speed;
 
 	@Override
@@ -15,8 +16,18 @@ public class Log extends Actor {
 			setX(700);
 	}
 
-	public Log(String imageLink, int size, int xpos, int ypos, double s) {
-		setImage(new Image(imageLink, size, size, true, true));
+//	public Log(String imageLink, int size, int xpos, int ypos, double s) {
+//		setImage(new Image(imageLink, size, size, true, true));
+//		setX(xpos);
+//		setY(ypos);
+//		speed = s;
+//
+//	}
+	
+	public Log(int size, int xpos, int ypos, double s) {
+
+		
+		setImage(new Image(LOG_3, size, size, true, true));
 		setX(xpos);
 		setY(ypos);
 		speed = s;

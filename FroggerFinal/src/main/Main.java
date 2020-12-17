@@ -8,13 +8,10 @@ import java.util.List;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
@@ -27,7 +24,7 @@ public class Main extends Application {
 	Animal animal;
 	
 	private Stage primaryStage;
-	private BorderPane testLayout;
+	private StackPane MenuLayout;
 		
 	public static void main(String[] args) {
 		launch(args);
@@ -40,7 +37,7 @@ public class Main extends Application {
 		
 		background = new MyStage();
 		//background size
-		Scene scene = new Scene(background, 565, 800);
+		Scene scene = new Scene(background);
 
 		// Obstacle obstacle = new Obstacle("file:src/resources/truck1Right.png",
 		// 25, 25, 3);
@@ -52,19 +49,28 @@ public class Main extends Application {
 		BackgroundImage froggerback = new BackgroundImage("file:src/resources/background.png");
 
 		background.add(froggerback);
-
-		background.add(new Log("file:src/resources/log3.png", 150, 0, 166, 0.75));
-		background.add(new Log("file:src/resources/log3.png", 150, 220, 166, 0.75));
-		background.add(new Log("file:src/resources/log3.png", 150, 440, 166, 0.75));
+		
+		/*
+		 * 9th row of logs
+		 */
+		background.add(new Log(150, 0, 166, 0.75));
+		background.add(new Log(150, 220, 166, 0.75));
+		background.add(new Log(150, 440, 166, 0.75));
 		// background.add(new Log("file:src/resources/log3.png", 150, 0, 166,
 		// 0.75));
-		background.add(new Log("file:src/resources/logs.png", 300, 0, 276, -2));
-		background.add(new Log("file:src/resources/logs.png", 300, 400, 276, -2));
+		/*
+		 * 7th row of logs
+		 */
+		background.add(new Log(150, 0, 276, -2));
+		background.add(new Log(150, 400, 276, -2));
 		// background.add(new Log("file:src/resources/logs.png", 300, 800, 276,
 		// -2));
-		background.add(new Log("file:src/resources/log3.png", 150, 50, 329, 0.75));
-		background.add(new Log("file:src/resources/log3.png", 150, 270, 329, 0.75));
-		background.add(new Log("file:src/resources/log3.png", 150, 490, 329, 0.75));
+		/*
+		 * 6th row of logs
+		 */
+		background.add(new Log(150, 50, 329, 0.75));
+		background.add(new Log(150, 270, 329, 0.75));
+		background.add(new Log(150, 490, 329, 0.75));
 		// background.add(new Log("file:src/resources/log3.png", 150, 570, 329,
 		// 0.75));
 
@@ -93,13 +99,17 @@ public class Main extends Application {
 		// End end3 = new End();
 		// End end4 = new End();
 		// End end5 = new End();
+		
 		background.add(new End(13, 96));
 		background.add(new End(141, 96));
 		background.add(new End(141 + 141 - 13, 96));
 		background.add(new End(141 + 141 - 13 + 141 - 13 + 1, 96));
 		background.add(new End(141 + 141 - 13 + 141 - 13 + 141 - 13 + 3, 96));
+		
 		animal = new Animal("file:src/resources/froggerUp.png");
 		background.add(animal);
+		
+		
 		background.add(new Obstacle("file:src/resources/truck1" + "Right.png", 0, 649, 1, 120, 120));
 		background.add(new Obstacle("file:src/resources/truck1" + "Right.png", 300, 649, 1, 120, 120));
 		background.add(new Obstacle("file:src/resources/truck1" + "Right.png", 600, 649, 1, 120, 120));
@@ -128,8 +138,8 @@ public class Main extends Application {
 	private void showMainView() throws IOException {
 		FXMLLoader loader = new FXMLLoader ();
 		loader.setLocation(Main.class.getResource("view/Mainview.fxml"));
-		testLayout = (BorderPane) loader.load();
-		Scene scene = new Scene (testLayout);
+		MenuLayout = (StackPane) loader.load();
+		Scene scene = new Scene (MenuLayout);
 		this.primaryStage.setScene(scene);
 		this.primaryStage.show();
 			
