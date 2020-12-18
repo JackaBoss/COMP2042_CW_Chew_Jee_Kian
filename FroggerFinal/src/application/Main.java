@@ -1,6 +1,7 @@
 package application;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -35,19 +36,20 @@ public class Main extends Application {
 		this.primaryStage.setTitle(" Frogger The Game");
 		
 		background = new MyStage();
-		Scene scene = new Scene(background);
+		Scene scene = new Scene(background, 560, 800);
 		BackgroundImage froggerback = new BackgroundImage();
 		background.add(froggerback);
 		
 		/*
 		 * Win condition / Frog Destination
+		 * Modified some values to fix the visual glitch
 		 */
 		
-		background.add(new End(13, 96));
-		background.add(new End(141, 96));
-		background.add(new End(141 + 141 - 13, 96));
-		background.add(new End(141 + 141 - 13 + 141 - 13 + 1, 96));
-		background.add(new End(141 + 141 - 13 + 141 - 13 + 141 - 13 + 3, 96));
+		background.add(new End(10, 96));
+		background.add(new End(131, 96));
+		background.add(new End(252, 96));
+		background.add(new End(370, 96));
+		background.add(new End(490, 96));
 		
 		/*
 		 * 9th row of logs
@@ -67,7 +69,6 @@ public class Main extends Application {
 		 */
 		background.add(new Log(150, 50, 329, 0.75));
 		background.add(new Log(150, 270, 329, 0.75));
-		background.add(new Log(150, 490, 329, 0.75));
 		background.add(new Log(150, 570, 329, 0.75));
 		/*
 		 * 5th row of turtle backs
@@ -152,5 +153,6 @@ public class Main extends Application {
 			background.add(new Digit(FinalScore, 30, 360 - shift, 25));
 			shift += 30;
 		}
-	}
+	}	
 }
+
