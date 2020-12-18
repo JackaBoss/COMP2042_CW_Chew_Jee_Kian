@@ -1,5 +1,6 @@
-package main;
+package application;
 
+import actors.Actor;
 import javafx.scene.image.Image;
 
 public class Digit extends Actor {

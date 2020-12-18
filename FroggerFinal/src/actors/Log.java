@@ -1,4 +1,4 @@
-package main;
+package actors;
 
 import javafx.scene.image.Image;
 

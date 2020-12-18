@@ -1,9 +1,10 @@
-package main;
+package application;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
+import actors.Actor;
 import javafx.animation.AnimationTimer;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

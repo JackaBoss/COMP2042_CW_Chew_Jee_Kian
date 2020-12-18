@@ -1,9 +1,11 @@
-package main;
+package actors;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.input.InputEvent;
 
 import java.util.ArrayList;
+
+import application.World;
 
 public abstract class Actor extends ImageView {
 

@@ -1,7 +1,8 @@
-package main;
+package actors;
 
 import java.util.ArrayList;
 
+import application.End;
 import javafx.event.EventHandler;
 
 import javafx.scene.image.Image;

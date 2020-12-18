@@ -1,10 +1,16 @@
-package main;
+package application;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 
+import actors.Animal;
+import actors.BackgroundImage;
+import actors.Log;
+import actors.Obstacle;
+import actors.Turtle;
+import actors.WetTurtle;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
