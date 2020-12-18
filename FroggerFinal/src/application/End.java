@@ -3,6 +3,11 @@ package application;
 import actors.Actor;
 import javafx.scene.image.Image;
 
+/**
+ * Displays the end goal area of the game
+ * @author Chew Jee Kian 10346178
+ */
+
 public class End extends Actor {
 	boolean activated = false;
 

@@ -3,6 +3,11 @@ package application;
 import actors.Actor;
 import javafx.scene.image.Image;
 
+/**
+ * Displays the score for the game
+ * @author Chew Jee Kian 10346178
+ */
+
 public class Digit extends Actor {
 	int dim;
 	Image im1;

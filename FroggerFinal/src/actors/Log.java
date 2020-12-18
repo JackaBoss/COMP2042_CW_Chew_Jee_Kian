@@ -2,6 +2,12 @@ package actors;
 
 import javafx.scene.image.Image;
 
+
+/*
+ * This class generates the moving logs on the river for the player to stand on
+ * @author Chew Jee Kian 10346178
+ */
+
 public class Log extends Actor {
 	public static String LOG_3 = "file:src/resources/log3.png";
 	

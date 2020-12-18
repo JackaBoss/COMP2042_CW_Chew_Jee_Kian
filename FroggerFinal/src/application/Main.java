@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 
-import actors.Animal;
+import actors.Player;
 import actors.BackgroundImage;
 import actors.Log;
 import actors.Obstacle;
@@ -20,10 +20,15 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 
+/**
+ * The main class of the game, calls the map and initiates the start of the game
+ * @author Chew Jee Kian 10346178
+ */
+
 public class Main extends Application {
 	AnimationTimer timer;
 	MyStage background;
-	Animal animal;
+	Player animal;
 	private Stage primaryStage;
 		
 	public static void main(String[] args) {
@@ -83,8 +88,8 @@ public class Main extends Application {
 		background.add(new WetTurtle(400, 217, -1, 130, 130));
 		background.add(new WetTurtle(200, 217, -1, 130, 130));
 		
-		animal = new Animal("file:src/resources/froggerUp.png");
-		background.add(animal = new Animal("file:src/resources/froggerUp.png"));
+		animal = new Player("file:src/resources/froggerUp.png");
+		background.add(animal = new Player("file:src/resources/froggerUp.png"));
 		
 		/*
 		 * 1-4th row of obstacles

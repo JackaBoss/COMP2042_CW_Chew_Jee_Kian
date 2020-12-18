@@ -9,7 +9,15 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
-public class Animal extends Actor {
+/*
+ * This class was used to be named Animal.Java, has been renamed to Player for easy locating and understanding
+ *  @author Chew Jee Kian 10346178
+ * 
+ */
+
+
+
+public class Player extends Actor {
 	Image ImageFront;
 	Image ImageLeft;
 	Image ImageDown;
@@ -33,7 +41,7 @@ public class Animal extends Actor {
 	double w = 800;
 	ArrayList<End> inter = new ArrayList<End>();
 
-	public Animal(String imageLink) {
+	public Player(String imageLink) {
 		setImage(new Image(imageLink, imgSize, imgSize, true, true));
 		setX(300);
 		setY(679.8 + movement);

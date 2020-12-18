@@ -7,6 +7,13 @@ import java.util.ArrayList;
 
 import application.World;
 
+/*
+ * Actor class is used to provide movement for all entities in this game, it is both used by the main player and the obstacles
+ * @author Chew Jee Kian 10346178
+ * 
+ */
+
+
 public abstract class Actor extends ImageView {
 
 	public void move(double dx, double dy) {

@@ -2,6 +2,13 @@ package actors;
 
 import javafx.scene.image.Image;
 
+
+/*
+ * This class acts as a constructor for the other objects, since there is more than 1 type of vehicle, this class is used to generate those moving vehicles as obstacles
+ * With more time I could have converted the still turtle to use this class for more efficiency
+ * @author Chew Jee Kian 10346178
+ */
+
 public class Obstacle extends Actor {
 	private int speed;
 

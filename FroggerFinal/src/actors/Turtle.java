@@ -2,6 +2,11 @@ package actors;
 
 import javafx.scene.image.Image;
 
+/*
+ * The still turtle as a platform that serves as a bridge for the player to cross to the goal state
+ * @author Chew Jee Kian 10346178
+ */
+
 public class Turtle extends Actor {
 	Image turtle1;
 	Image turtle2;
@@ -31,10 +36,10 @@ public class Turtle extends Actor {
 			setX(600);
 	}
 
-	public Turtle(int xpos, int ypos, int s, int w, int h) {
-		turtle1 = new Image("file:src/resources/TurtleAnimation1.png", w, h, true, true);
-		turtle2 = new Image("file:src/resources/TurtleAnimation2.png", w, h, true, true);
-		turtle3 = new Image("file:src/resources/TurtleAnimation3.png", w, h, true, true);
+	public Turtle(int xpos, int ypos, int s, int width, int height) {
+		turtle1 = new Image("file:src/resources/TurtleAnimation1.png", width, height, true, true);
+		turtle2 = new Image("file:src/resources/TurtleAnimation2.png", width, height, true, true);
+		turtle3 = new Image("file:src/resources/TurtleAnimation3.png", width, height, true, true);
 		setX(xpos);
 		setY(ypos);
 		speed = s;

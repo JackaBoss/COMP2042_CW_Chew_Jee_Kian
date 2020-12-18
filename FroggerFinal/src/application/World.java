@@ -14,7 +14,10 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 
-
+/**
+ * Starts and stops the game
+ * @author Chew Jee Kian 10346178
+ */
 
 public abstract class World extends Pane {
     private AnimationTimer timer;

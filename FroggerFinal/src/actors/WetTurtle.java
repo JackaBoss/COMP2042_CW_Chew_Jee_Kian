@@ -2,6 +2,11 @@ package actors;
 
 import javafx.scene.image.Image;
 
+/*
+ * The moving turtle as a platform
+ * @author Chew Jee Kian 10346178
+ */
+
 public class WetTurtle extends Actor {
 	Image turtle1;
 	Image turtle2;
@@ -12,6 +17,9 @@ public class WetTurtle extends Actor {
 	boolean bool = true;
 	boolean sunk = false;
 
+	/*
+	 * There will be a count down and a random turtle will be generated. There is a chance that a turtle that wont dive will spawn.
+	 */
 	@Override
 	public void act(long timer) {
 

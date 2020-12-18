@@ -5,6 +5,11 @@ import java.io.File;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
+/**
+ * Plays the music in the background during the game of Frogger
+ * @author Chew Jee Kian 10346178
+ */
+
 public class MyStage extends World {
 	MediaPlayer mediaPlayer;
 
