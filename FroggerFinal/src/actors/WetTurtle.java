@@ -13,19 +13,19 @@ public class WetTurtle extends Actor {
 	boolean sunk = false;
 
 	@Override
-	public void act(long now) {
+	public void act(long timer) {
 
-		if (now / 900000000 % 4 == 0) {
+		if (timer / 900000000 % 4 == 0) {
 			setImage(turtle2);
 			sunk = false;
 
-		} else if (now / 900000000 % 4 == 1) {
+		} else if (timer / 900000000 % 4 == 1) {
 			setImage(turtle1);
 			sunk = false;
-		} else if (now / 900000000 % 4 == 2) {
+		} else if (timer / 900000000 % 4 == 2) {
 			setImage(turtle3);
 			sunk = false;
-		} else if (now / 900000000 % 4 == 3) {
+		} else if (timer / 900000000 % 4 == 3) {
 			setImage(turtle4);
 			sunk = true;
 		}
@@ -37,11 +37,11 @@ public class WetTurtle extends Actor {
 			setX(600);
 	}
 
-	public WetTurtle(int xpos, int ypos, int s, int w, int h) {
-		turtle1 = new Image("file:src/resources/TurtleAnimation1.png", w, h, true, true);
-		turtle2 = new Image("file:src/resources/TurtleAnimation2Wet.png", w, h, true, true);
-		turtle3 = new Image("file:src/resources/TurtleAnimation3Wet.png", w, h, true, true);
-		turtle4 = new Image("file:src/resources/TurtleAnimation4Wet.png", w, h, true, true);
+	public WetTurtle(int xpos, int ypos, int s, int width, int height) {
+		turtle1 = new Image("file:src/resources/TurtleAnimation1.png", width, height, true, true);
+		turtle2 = new Image("file:src/resources/TurtleAnimation2Wet.png", width, height, true, true);
+		turtle3 = new Image("file:src/resources/TurtleAnimation3Wet.png", width, height, true, true);
+		turtle4 = new Image("file:src/resources/TurtleAnimation4Wet.png", width, height, true, true);
 		setX(xpos);
 		setY(ypos);
 		speed = s;

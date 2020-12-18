@@ -10,14 +10,14 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 public class Animal extends Actor {
-	Image imgW1;
-	Image imgA1;
-	Image imgS1;
-	Image imgD1;
-	Image imgW2;
-	Image imgA2;
-	Image imgS2;
-	Image imgD2;
+	Image ImageFront;
+	Image ImageLeft;
+	Image ImageDown;
+	Image ImageRight;
+	Image ImageFront2;
+	Image ImageLeft2;
+	Image ImageDown2;
+	Image ImageRight2;
 	int points = 0;
 	int end = 0;
 	private boolean second = false;
@@ -37,14 +37,14 @@ public class Animal extends Actor {
 		setImage(new Image(imageLink, imgSize, imgSize, true, true));
 		setX(300);
 		setY(679.8 + movement);
-		imgW1 = new Image("file:src/resources/froggerUp.png", imgSize, imgSize, true, true);
-		imgA1 = new Image("file:src/resources/froggerLeft.png", imgSize, imgSize, true, true);
-		imgS1 = new Image("file:src/resources/froggerDown.png", imgSize, imgSize, true, true);
-		imgD1 = new Image("file:src/resources/froggerRight.png", imgSize, imgSize, true, true);
-		imgW2 = new Image("file:src/resources/froggerUpJump.png", imgSize, imgSize, true, true);
-		imgA2 = new Image("file:src/resources/froggerLeftJump.png", imgSize, imgSize, true, true);
-		imgS2 = new Image("file:src/resources/froggerDownJump.png", imgSize, imgSize, true, true);
-		imgD2 = new Image("file:src/resources/froggerRightJump.png", imgSize, imgSize, true, true);
+		ImageFront = new Image("file:src/resources/froggerUp.png", imgSize, imgSize, true, true);
+		ImageLeft = new Image("file:src/resources/froggerLeft.png", imgSize, imgSize, true, true);
+		ImageDown = new Image("file:src/resources/froggerDown.png", imgSize, imgSize, true, true);
+		ImageRight = new Image("file:src/resources/froggerRight.png", imgSize, imgSize, true, true);
+		ImageFront2 = new Image("file:src/resources/froggerUpJump.png", imgSize, imgSize, true, true);
+		ImageLeft2 = new Image("file:src/resources/froggerLeftJump.png", imgSize, imgSize, true, true);
+		ImageDown2 = new Image("file:src/resources/froggerDownJump.png", imgSize, imgSize, true, true);
+		ImageRight2 = new Image("file:src/resources/froggerRightJump.png", imgSize, imgSize, true, true);
 		setOnKeyPressed(new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent event) {
 				if (noMove) {
@@ -54,36 +54,36 @@ public class Animal extends Actor {
 						if (event.getCode() == KeyCode.W) {
 							move(0, -movement);
 							changeScore = false;
-							setImage(imgW1);
+							setImage(ImageFront);
 							second = false;
 						} else if (event.getCode() == KeyCode.A) {
 							move(-movementX, 0);
-							setImage(imgA1);
+							setImage(ImageLeft);
 							second = false;
 						} else if (event.getCode() == KeyCode.S) {
 							move(0, movement);
-							setImage(imgS1);
+							setImage(ImageDown);
 							second = false;
 						} else if (event.getCode() == KeyCode.D) {
 							move(movementX, 0);
-							setImage(imgD1);
+							setImage(ImageRight);
 							second = false;
 						}
 					} else if (event.getCode() == KeyCode.W) {
 						move(0, -movement);
-						setImage(imgW2);
+						setImage(ImageFront2);
 						second = true;
 					} else if (event.getCode() == KeyCode.A) {
 						move(-movementX, 0);
-						setImage(imgA2);
+						setImage(ImageLeft2);
 						second = true;
 					} else if (event.getCode() == KeyCode.S) {
 						move(0, movement);
-						setImage(imgS2);
+						setImage(ImageDown2);
 						second = true;
 					} else if (event.getCode() == KeyCode.D) {
 						move(movementX, 0);
-						setImage(imgD2);
+						setImage(ImageRight2);
 						second = true;
 					}
 				}
@@ -100,19 +100,19 @@ public class Animal extends Actor {
 							points += 10;
 						}
 						move(0, -movement);
-						setImage(imgW1);
+						setImage(ImageFront);
 						second = false;
 					} else if (event.getCode() == KeyCode.A) {
 						move(-movementX, 0);
-						setImage(imgA1);
+						setImage(ImageLeft);
 						second = false;
 					} else if (event.getCode() == KeyCode.S) {
 						move(0, movement);
-						setImage(imgS1);
+						setImage(ImageDown);
 						second = false;
 					} else if (event.getCode() == KeyCode.D) {
 						move(movementX, 0);
-						setImage(imgD1);
+						setImage(ImageRight);
 						second = false;
 					}
 				}

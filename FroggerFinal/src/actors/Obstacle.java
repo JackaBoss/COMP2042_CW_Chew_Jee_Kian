@@ -14,8 +14,8 @@ public class Obstacle extends Actor {
 			setX(600);
 	}
 
-	public Obstacle(String imageLink, int xpos, int ypos, int s, int w, int h) {
-		setImage(new Image(imageLink, w, h, true, true));
+	public Obstacle(String imageLink, int xpos, int ypos, int s, int width, int height) {
+		setImage(new Image(imageLink, width, height, true, true));
 		setX(xpos);
 		setY(ypos);
 		speed = s;

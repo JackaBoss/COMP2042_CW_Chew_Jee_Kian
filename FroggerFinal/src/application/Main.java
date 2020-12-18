@@ -13,16 +13,11 @@ import actors.Turtle;
 import actors.WetTurtle;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.layout.StackPane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Duration;
+
 
 public class Main extends Application {
 	AnimationTimer timer;
@@ -120,7 +115,7 @@ public class Main extends Application {
 			@Override
 			public void handle(long now) {
 				if (animal.changeScore()) {
-					setNumber(animal.getPoints());
+					setScore(animal.getPoints());
 				}
 				
 				if (animal.getStop()) {
@@ -148,13 +143,13 @@ public class Main extends Application {
 		timer.stop();
 	}
 
-	public void setNumber(int n) {
+	public void setScore(int number) {
 		int shift = 0;
-		while (n > 0) {
-			int d = n / 10;
-			int k = n - d * 10;
-			n = d;
-			background.add(new Digit(k, 30, 360 - shift, 25));
+		while (number > 0) {
+			int Modifiyer = number / 10;
+			int FinalScore = number - Modifiyer * 10;
+			number = Modifiyer;
+			background.add(new Digit(FinalScore, 30, 360 - shift, 25));
 			shift += 30;
 		}
 	}

@@ -9,6 +9,7 @@ public class BackgroundImage extends Actor {
 	 * Changed values to width and height for easy maintainability
 	 * @Jack Chew 10346178
 	 */
+	public static String BackGroundStageImg = "file:src/resources/background.png";
 	public int width = 600;
 	public int height = 800;
 
@@ -19,7 +20,7 @@ public class BackgroundImage extends Actor {
 
 	public BackgroundImage() {
 
-		setImage(new Image("file:src/resources/background.png", width, height, true, true));
+		setImage(new Image(BackGroundStageImg, width, height, true, true));
 
 	}
 
