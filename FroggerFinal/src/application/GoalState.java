@@ -5,18 +5,19 @@ import javafx.scene.image.Image;
 
 /**
  * Displays the end goal area of the game
+ * Used to be called End
  * @author Chew Jee Kian 10346178
  */
 
-public class End extends Actor {
+public class GoalState extends Actor {
 	boolean activated = false;
 
 	@Override
 	public void act(long now) {
-		// TODO Auto-generated method st
+		// TODO Auto-generated method 
 	}
 
-	public End(int x, int y) {
+	public GoalState(int x, int y) {
 		setX(x);
 		setY(y);
 		setImage(new Image("file:src/resources/End.png", 60, 60, true, true));

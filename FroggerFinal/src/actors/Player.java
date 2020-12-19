@@ -2,7 +2,7 @@ package actors;
 
 import java.util.ArrayList;
 
-import application.End;
+import application.GoalState;
 import javafx.event.EventHandler;
 
 import javafx.scene.image.Image;
@@ -39,7 +39,7 @@ public class Player extends Actor {
 	boolean changeScore = false;
 	int carD = 0;
 	double w = 800;
-	ArrayList<End> inter = new ArrayList<End>();
+	ArrayList<GoalState> inter = new ArrayList<GoalState>();
 
 	public Player(String imageLink) {
 		setImage(new Image(imageLink, imgSize, imgSize, true, true));
@@ -221,16 +221,16 @@ public class Player extends Actor {
 			} else {
 				move(-1, 0);
 			}
-		} else if (getIntersectingObjects(End.class).size() >= 1) {
-			inter = (ArrayList<End>) getIntersectingObjects(End.class);
-			if (getIntersectingObjects(End.class).get(0).isActivated()) {
+		} else if (getIntersectingObjects(GoalState.class).size() >= 1) {
+			inter = (ArrayList<GoalState>) getIntersectingObjects(GoalState.class);
+			if (getIntersectingObjects(GoalState.class).get(0).isActivated()) {
 				end--;
 				points -= 50;
 			}
 			points += 50;
 			changeScore = true;
 			w = 800;
-			getIntersectingObjects(End.class).get(0).setEnd();
+			getIntersectingObjects(GoalState.class).get(0).setEnd();
 			end++;
 			setX(300);
 			setY(679.8 + movement);

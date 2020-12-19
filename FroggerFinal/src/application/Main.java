@@ -45,11 +45,11 @@ public class Main extends Application {
 		 * Modified some values to fix the visual glitch
 		 */
 		
-		background.add(new End(10, 96));
-		background.add(new End(131, 96));
-		background.add(new End(252, 96));
-		background.add(new End(370, 96));
-		background.add(new End(490, 96));
+		background.add(new GoalState(10, 96));
+		background.add(new GoalState(131, 96));
+		background.add(new GoalState(252, 96));
+		background.add(new GoalState(370, 96));
+		background.add(new GoalState(490, 96));
 		
 		/*
 		 * 9th row of logs
@@ -102,7 +102,7 @@ public class Main extends Application {
 		background.add(new Obstacle("file:src/resources/car1Left.png", 500, 490, -5, 50, 50));
 		
 
-		background.add(new Digit(0, 30, 360, 25));
+		background.add(new ScoreDisplay(0, 30, 360, 25));
 		
 		background.start();
 		this.primaryStage.setScene(scene);
@@ -150,7 +150,7 @@ public class Main extends Application {
 			int Modifiyer = number / 10;
 			int FinalScore = number - Modifiyer * 10;
 			number = Modifiyer;
-			background.add(new Digit(FinalScore, 30, 360 - shift, 25));
+			background.add(new ScoreDisplay(FinalScore, 30, 360 - shift, 25));
 			shift += 30;
 		}
 	}	
