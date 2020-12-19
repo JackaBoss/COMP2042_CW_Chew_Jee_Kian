@@ -1,11 +1,6 @@
 package application;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.net.URL;
-import java.util.List;
-
 import actors.Player;
 import actors.BackgroundImage;
 import actors.Log;
